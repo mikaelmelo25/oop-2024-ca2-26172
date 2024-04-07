@@ -1,0 +1,40 @@
+﻿//Name:  Mikael Melo
+//student number: 26172
+
+@model IEnumerable<BankingMVC.Data.Entities.CustomerEntity>
+
+<h1>Customer List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Savings Balance</th>
+            <th>Current Balance</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.FirstName</td>
+                <td>@customer.LastName</td>
+                @* <td>@customer.Email</td> *@
+                <td>@customer.SavingsAccount.Balance</td>
+                <td>@customer.CurrentAccount.Balance</td>
+                <td>
+                    <a asp-action="CreateTransaction" asp-route-id="@customer.Id">Create Transaction</a>
+                    @if (customer.SavingsAccount.Balance == 0 && customer.CurrentAccount.Balance == 0)
+                    {
+                        <a asp-action="DeleteCustomer" asp-route-id="@customer.Id">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create">Create New Customer</a>

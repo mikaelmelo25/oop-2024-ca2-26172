@@ -1,0 +1,44 @@
+﻿@* @model IEnumerable<BankingSharedLibrary.Models.CustomerModel>
+
+<h2>Bank Employee Dashboard</h2>
+
+<div>
+    <h3>Customers</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Account Numbers</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@customer.FirstName</td>
+                    <td>@customer.LastName</td>
+                    <td>@customer.Email</td>
+                    <td>
+                        @foreach (var account in customer.Accounts)
+                        {
+                            <span>@account.AccountNumber (@account.AccountType)</span>
+
+                            <br />
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Create Transaction", "CreateTransaction", new { customerId = customer.Id })
+                        @Html.ActionLink("Delete Customer", "DeleteCustomer", new { accountNumber = customer.Accounts.First().AccountNumber })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    @Html.ActionLink("Create Customer", "CreateCustomer")
+</div> *@

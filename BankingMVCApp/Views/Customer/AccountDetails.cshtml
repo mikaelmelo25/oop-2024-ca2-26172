@@ -1,0 +1,22 @@
+﻿//Name:  Mikael Melo
+//student number: 26172
+
+@model BankingSharedLibrary.Models.Customer
+
+@{
+    ViewData["Title"] = "Account Details";
+}
+
+<h1>Account Details</h1>
+
+<h2>Savings Account</h2>
+<p>Balance: @Model.SavingsAccount.Balance</p>
+<a asp-action="TransactionHistory" asp-route-accountType="Savings">View Transaction History</a>
+<a asp-action="AddMoney" asp-route-accountType="Savings">Add Money</a>
+<a asp-action="SubtractMoney" asp-route-accountType="Savings">Subtract Money</a>
+
+<h2>Current Account</h2>
+<p>Balance: @Model.CurrentAccount.Balance</p>
+<a asp-action="TransactionHistory" asp-route-accountType="Current">View Transaction History</a>
+<a asp-action="AddMoney" asp-route-accountType="Current">Add Money</a>
+<a asp-action="SubtractMoney" asp-route-accountType="Current">Subtract Money</a>

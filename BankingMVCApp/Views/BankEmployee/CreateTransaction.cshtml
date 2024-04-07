@@ -1,0 +1,33 @@
+﻿//Name:  Mikael Melo
+//student number: 26172
+
+@model BankingMVC.Data.Entities.CustomerEntity
+
+
+
+<h1>Create Transaction</h1>
+<h4>Customer: @Model.FirstName @Model.LastName</h4>
+<hr />
+
+<form asp-action="CreateTransaction" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <div class="form-group">
+        <label for="accountType">Account Type</label>
+        <select name="accountType" class="form-control">
+            <option value="Savings">Savings</option>
+            <option value="Current">Current</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="action">Action</label>
+        <select name="action" class="form-control">
+            <option value="Lodge">Lodge</option>
+            <option value="Withdraw">Withdraw</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="amount">Amount</label>
+        <input name="amount" class="form-control" type="number" step="0.01" />
+    </div>
+    <button type="submit" class="btn btn-primary">Create Transaction</button>
+</form>

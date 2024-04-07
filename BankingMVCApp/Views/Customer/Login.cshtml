@@ -1,0 +1,30 @@
+﻿//Name:  Mikael Melo
+//student number: 26172
+
+@model BankingSharedLibrary.Models.Customer
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Customer Login</h1>
+
+<form asp-action="Login" method="post">
+    <div>
+        <label asp-for="FirstName">First Name</label>
+        <input asp-for="FirstName" />
+    </div>
+    <div>
+        <label asp-for="LastName">Last Name</label>
+        <input asp-for="LastName" />
+    </div>
+    <div>
+        <label asp-for="AccountNumber">Account Number</label>
+        <input asp-for="AccountNumber" />
+    </div>
+    <div>
+        <label asp-for="Pin">PIN</label>
+        <input asp-for="Pin" type="password" />
+    </div>
+    <button type="submit">Login</button>
+</form>
